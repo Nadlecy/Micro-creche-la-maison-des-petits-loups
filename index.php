@@ -114,8 +114,8 @@
     </div>
   </div>
 
-  <div>
-    
+  <div class= "container">
+    Actualité récente
   </div>
 
   <div>

@@ -27,6 +27,9 @@ require_once 'config/config.php';
     include 'components/admin-nav.php';
     ?>
 
+    <div class="container">
+        <h3>Gestion du texte sur les pages</h3>
+    </div>
     <!-- liste des différents paragraphes -->
 
     <!--JavaScript at end of body for optimized loading-->

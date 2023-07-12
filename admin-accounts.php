@@ -26,7 +26,10 @@ require_once 'config/config.php';
     <?php
     include 'components/admin-nav.php';
     ?>
-    <div class="container"><h3>Gestion des Comptes</h3></div>
+
+    <div class="container">
+        <h3>Gestion des Comptes</h3>
+    </div>
     <!-- account creation -->
     <div class="container">
         <h4>Nouveau compte</h4>

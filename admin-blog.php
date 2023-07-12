@@ -27,103 +27,84 @@ require_once 'config/config.php';
     include 'components/admin-nav.php';
     ?>
 
+    <div class="container">
+        <h3>Gestion de l'Actualité</h3>
+    </div>
     <!-- post creation -->
     <div class="container">
         <h4>Nouvel article</h4>
         <div class="card">
-            <form class="row" method="post" action="queries/signup.php">
-                <div class="input-field col s12 m4">
-                    <i class="material-icons prefix ">person</i>
-                    <input id="first_name" type="text" name="first_name" class="validate" />
-                    <label for="first_name" class="">Prénom</label>
+            <form method="post" action="queries/article-create.php">
+
+                <!-- adding text values -->
+                <div class="row">
+                    <div class="input-field col s12 m4">
+                        <input id="title" type="text" name="title" class="validate" />
+                        <label for="title">Titre</label>
+                    </div>
                 </div>
-                <div class="input-field col s12 m4">
-                    <input id="last_name" type="text" name="last_name" class="validate" />
-                    <label for="last_name" class="">Nom de Famille</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="content" name="content" class="materialize-textarea" data-length="1000"></textarea>
+                        <label for="content">Contenu</label>
+                    </div>
                 </div>
-                <div class="input-field col s12 m4">
-                    <input id="child_name" type="text" name="child_name" class="validate" />
-                    <label for="child_name" class="">Prénom de l'enfant</label>
+
+                <!-- choosing pictures -->
+                <div class="row">
+                    <div class="col s12 m4">
+                        <label for="image1">Image 1:</label>
+                        <input type="file" name="image1" id="image1" accept="image/*">
+                    </div>
+                    <div class="col s12 m4">
+                        <label for="image2">Image 2:</label>
+                        <input type="file" name="image2" id="image2" accept="image/*">
+                    </div>
+                    <div class="col s12 m4">
+                        <label for="image3">Image 3:</label>
+                        <input type="file" name="image3" id="image3" accept="image/*">
+                    </div>
                 </div>
-                <div class="input-field col s12 m4">
-                    <i class="material-icons prefix ">mail</i>
-                    <input id="email" type="email" name="email" class="validate" />
-                    <label for="email" class="">Email</label>
-                    <span class="helper-text" data-error="Adresse invalide" data-success=""></span>
+
+                <!-- setting visibility -->
+                <div class="row">
+                    <div class="col s12 m6">
+                        <label for="visibility">Visibilité:</label>
+                        <label>
+                            <input class="with-gap" type="radio" name="visibility" value="public" checked />
+                            <span>Public</span>
+                        </label>
+                        <label>
+                            <input class="with-gap" type="radio" name="visibility" value="private" />
+                            <span>Private</span>
+                        </label>
+                    </div>
+                    <!-- selecting recipients -->
+                    <div class="col s12 m6">
+                        <label for="recipients">Destinataires:</label>
+                        <select name="recipients[]" id="recipients" multiple>
+                            <?php
+                            $sql = "SELECT `id`, `last_name`, `first_name` FROM `accounts` WHERE 1 ORDER BY last_name";
+                            $pre = $pdo->prepare($sql); //on prévient la base de données qu'on va executer une requête
+                            $pre->execute(); //on l'execute
+                            $data = $pre->fetchAll(PDO::FETCH_ASSOC); // on stocke les données dans $data
+                            foreach ($data as $userData) {
+                            ?>
+                                <option value=<?php echo $userData['id']; ?>> <?php echo $userData['last_name']; ?> <?php echo $userData['first_name']; ?></option>
+                            <?php
+                            };
+                            ?>
+                        </select>
+                    </div>
                 </div>
-                <div class="input-field col s12 m4">
-                    <i class="material-icons prefix ">key</i>
-                    <input id="password" type="password" name="password" class="validate" />
-                    <label for="password" class="">Mot de passe temporaire</label>
-                </div>
-                <div class="input-field col s12 m4">
-                    <select name="admin">
-                        <option value="0" selected>Utilisateur</option>
-                        <option value="1">Administrateur</option>
-                    </select>
-                    <label>Type de compte</label>
-                </div>
-                <button class="btn waves-effect waves-light pink lighten-1" type="submit">Créer</button>
-                <?php
-                if (isset($_SESSION["error"])) {
-                    echo "<div class='left red '>" . $_SESSION["error"] . "</div>";
-                    unset($_SESSION["error"]);
-                };
-                ?>
+
+                <input type="submit" name="submit" value="Créer">
             </form>
         </div>
     </div>
 
     <div class="container">
         <h4>Liste des articles</h4>
-        <?php
-        $sql = "SELECT `id`, `last_name`, `first_name`, `child_name`, `email`, `admin` FROM `accounts` WHERE 1";
-        $pre = $pdo->prepare($sql); //on prévient la base de données qu'on va executer une requête
-        $pre->execute(); //on l'execute
-        $data = $pre->fetchAll(PDO::FETCH_ASSOC); // on stocke les données dans $data
-        foreach ($data as $userData) {
-        ?>
-            <!-- account cards -->
-            <div class="card">
-                <div class="card-content amber lighten-4">
-                    <div class="row">
-                        <div class="col s12 m6">
-                            <p><strong>Nom :</strong> <?php echo $userData['last_name']; ?></p>
-                            <p><strong>Prénom :</strong> <?php echo $userData['first_name']; ?></p>
-                            <p><strong>Prénom de l'enfant:</strong> <?php echo $userData['child_name']; ?></p>
-                        </div>
-                        <div class="col s12 m6">
-                            <p><strong>Email:</strong> <?php echo $userData['email']; ?></p>
-                            <p><strong>Admin:</strong> <?php echo $userData['admin'] ? 'Oui' : 'Non'; ?></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- button to delete a user from database -->
-                        <form class="col s12 m3" method="post" action="queries/user-delete.php">
-                            <input type='hidden' name='userId' value="<?php echo $userData['id'] ?>" />
-                            <button type='submit'>Supprimer</button>
-                        </form>
-                        <!-- button to toggle a user's admin access -->
-                        <form class="col s12 m3" method="post" action="queries/admin-toggle.php">
-                            <input type='hidden' name='userId' value="<?php echo $userData['id'] ?>" />
-                            <button type='submit'>Ajouter/retirer en admin</button>
-                        </form>
-                        <!-- password reset -->
-                        <form class="col s12 m6" method="post" action="queries/user-pwreset.php">
-                            <input type='hidden' name='userId' value="<?php echo $userData['id'] ?>" />
-                            <div class=" col s12 m6 offset-m3">
-                                <input id="newpassword" type="text" name="newpassword" />
-                                <label for="newpassword">Réinitialiser le Mot de Passe</label>
-                            </div>
-                            <button type='submit'>Réinitialiser</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-        <?php
-        };
-        ?>
     </div>
 
     <!--JavaScript at end of body for optimized loading-->
