@@ -5,10 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>La Maison des Petits Loups</title>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
 
     <!--                                                        VRemove all this afterV              -->
     <link type="text/css" rel="stylesheet" href="css/style.css?<?php echo time(); ?>" media="screen,projection" />
@@ -23,7 +19,7 @@
         <nav id="navbar" class="red lighten-3" role="navigation">
             <div class="nav-wrapper container">
                 <a id="logo-container" href="index.php" class="brand-logo">
-                    <img class="fit-picture" src="/images/logo.jpg" alt="Logo">
+                    <img id="logo-nav" src="images/logo-maison-des-ptits-loups-la-seyne.svg" width="330px" height="150px" alt="Logo">
                 </a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="index.php">Accueil</a></li>
@@ -47,7 +43,7 @@
         </nav>
     </div>
 
-    <!-- Login Modal !! ISSUE SOMEWHERE !!-->
+    <!-- Login Modal !!!!!!!!!!!!! ISSUE SOMEWHERE, DOESNT LOGIN !!!!!!!!!!!!!-->
     <div id="login-modal" class="modal col s12 m6 l4">
         <div class="modal-content">
             <h4>Connexion</h4>

@@ -3,6 +3,7 @@ $(document).ready(function(){
   $('.sidenav').sidenav();
   $('.modal').modal();
   $('select').formSelect();
+  $('slider').slider();
 });
 
 //making a sticky nav bar

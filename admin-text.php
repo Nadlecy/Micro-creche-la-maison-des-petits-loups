@@ -31,6 +31,7 @@ require_once 'config/config.php';
         <h3>Gestion du texte sur les pages</h3>
     </div>
     <!-- liste des différents paragraphes -->
+    
 
     <!--JavaScript at end of body for optimized loading-->
     <script src="js/jquery.min.js"></script>

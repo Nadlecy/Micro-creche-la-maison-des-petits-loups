@@ -1,6 +1,10 @@
 <?php
 require_once "../config/config.php";
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 if (empty($_POST["email"])) {
     $_SESSION["error"] = "Adresse mail invalide !";
 } elseif (empty($_POST["password"])) {
@@ -23,3 +27,5 @@ if (empty($_POST["email"])) {
 };
 header('Location:../index.php'); //on le redirige sur la page d'accueil du site !
 exit();
+
+?>

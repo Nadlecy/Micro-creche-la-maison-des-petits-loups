@@ -28,7 +28,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="index.php">Retour</a></li>
                     <li><a href="admin-accounts.php">Comptes</a></li>
-                    <li><a href="admin-blog.php">Newsletter</a></li>
+                    <li><a href="admin-blog.php">News</a></li>
                     <li><a href="admin-text.php">Affichage</a></li>
                     <?php if (isset($_SESSION['user'])) { ?>
                         <li>test</li>
@@ -40,7 +40,7 @@
                 <ul id="nav-mobile" class="sidenav">
                     <li><a href="index.php">Retour</a></li>
                     <li><a href="admin-accounts.php">Comptes</a></li>
-                    <li><a href="admin-blog.php">Newsletter</a></li>
+                    <li><a href="admin-blog.php">News</a></li>
                     <li><a href="admin-text.php">Affichage</a></li>
                     <?php if (isset($_SESSION['user'])) { ?>
                         <li>test</li>

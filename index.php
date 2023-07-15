@@ -18,25 +18,24 @@
 </head>
 
 <body>
+
   <div class="red lighten-2 top-bar center-align grey-text text-darken-2">
     La Maison des Petits Loups | Micro Crèche à La Seyne-sur-Mer, Var
   </div>
-  <!--when testing, put the nav here; when you're done put it in the nav.php-->
+
+  <div class="main-title">
+  </div>
+
   <?php
   require_once 'components/nav.php';
   ?>
 
+
   <a href="admin-accounts.php">Admin</a>
 
-  <!--parallax-->
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br><br>
-      <h1 class="header center pink-text text-lighten-2">Micro-crèche<br>La Maison des Petits Loups</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">Tagline ?</h5>
-      </div>
-    </div>
+  <div class= "container center-align">
+    <h1>La Maison Des Petits Loups</h1>
+    <h3>Micro Crèche à La Seyne-sur-Mer, Var</h3>
   </div>
 
   <div class="container">
@@ -167,6 +166,8 @@
       Un espace cuisine avec évier, lave main à commande non manuelle, deux réfrigérateurs (un pour les enfants, un pour le personnel) ainsi qu'un micro onde,
 
       Et enfin une large pièce pour les enfants que l'on a rendu « cocooning » grâce à différents espaces dédiés au regroupement, à la lecture, aux chansons, aux activités, à la motricité, aux jeux de rôle (poupée, cuisine).
+      <?php
+      ?>
     </div>
   </div>
   <?php

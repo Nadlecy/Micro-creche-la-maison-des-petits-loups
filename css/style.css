@@ -11,6 +11,11 @@ nav {
   z-index: 2;
 }
 
+#logo-nav{
+  margin-top: -40px;
+  max-width: 130%;
+}
+
 .sidenav-overlay {
   z-index: 0;
 }
@@ -19,6 +24,12 @@ nav {
   height: 56px;
 }
 
-.additional-info{
-  background-color: #82b1ff;
+.main-title{
+  height: 0;
+  padding-top: 33%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-image: url(../images/maison-des-ptits-loups-grand-titre.jpg);
+  overflow: visible;
 }
