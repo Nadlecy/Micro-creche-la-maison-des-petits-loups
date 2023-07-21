@@ -26,7 +26,7 @@
                     <li><a href="blog.php">Actualité</a></li>
                     <li><a href="preinscriptions.php">Préinscriptions</a></li>
                     <?php if (isset($_SESSION['user'])) { ?>
-                        <li>test</li>
+                        <li><a href="queries/logout.php">Se déconnecter</a></li>
                     <?php } else { ?>
                         <li><a data-target="login-modal" class="modal-trigger">Se Connecter</a></li>
                     <?php }; ?>
@@ -36,7 +36,11 @@
                     <li><a href="index.php">Accueil</a></li>
                     <li><a href="blog.php">Actualité</a></li>
                     <li><a href="preinscriptions.php">Préinscriptions</a></li>
-                    <li><a data-target="login-modal" class="modal-trigger">Se Connecter</a></li>
+                    <?php if (isset($_SESSION['user'])) { ?>
+                        <li><a href="queries/logout.php">Se déconnecter</a></li>
+                    <?php } else { ?>
+                        <li><a data-target="login-modal" class="modal-trigger">Se Connecter</a></li>
+                    <?php }; ?>
                 </ul>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             </div>

@@ -2,50 +2,48 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>La Maison des Petits Loups</title>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>La Maison des Petits Loups</title>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
 
-    <!--                                                        VRemove all this afterV              -->
-    <link type="text/css" rel="stylesheet" href="css/style.css?<?php echo time(); ?>" media="screen,projection" />
+  <!--                                                        VRemove all this afterV              -->
+  <link type="text/css" rel="stylesheet" href="css/style.css?<?php echo time(); ?>" media="screen,projection" />
 
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 
 <footer class="page-footer red lighten-3">
-      <div class="container">
-        <div class="row">
-          <div class="col l4 s12">
-            <h5 class="white-text">Où sommes-nous ?</h5>
-            <ul>
-              <li>Business Park des Playes</li>
-              <li>540 boulevard de l'Europe</li>
-              <li>83500 LA SEYNE SUR MER</li>
-            </ul>
-          </div>
-          <div class="col l4 s12">
-            <h5 class="white-text">Une question ?</h5>
-            <ul>
-              <li>Tél. : 04.94.71.40.65 ou 06.71.19.28.43</li>
-              <li>Mail : contact@lamaisondesptitsloups.fr</li>
-            </ul>
-          </div>
-          <div class="col l4 s12">
-            <h5 class="white-text">La Maison des Petits Loups</h5>
-            Logo here
+  <div class="container">
+    <div class="row">
+      <?php
+      $sql = "SELECT * FROM `footer-boxes` WHERE 1";
+      $pre = $pdo->prepare($sql); //on prévient la base de données qu'on va executer une requête
+      $pre->execute(); //on l'execute
+      $boxes = $pre->fetchAll(PDO::FETCH_ASSOC); // on stocke les données dans $data
+      foreach ($boxes as $box) {
+      ?>
+        <div class="col l4 s12">
+          <h5 class="white-text"><?php echo $box['title'] ?></h5>
+          <p>
+            <?php echo nl2br($box['content']) ?>
+          </p>
+        </div>
+      <?php }; ?>
 
-          </div>
-        </div>
+      <div class="col l4 s12 center">
+        <img id="logo-footer" src="images/logo-maison-des-ptits-loups-la-seyne.svg" width="330px" height="150px" alt="Logo">
       </div>
-      <div class="footer-copyright">
-        <div class="container">
-          copyright thing
-        </div>
-      </div>
-    </footer>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      copyright thing
+    </div>
+  </div>
+</footer>

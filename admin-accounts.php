@@ -1,12 +1,13 @@
 <?php
 require_once 'config/config.php';
+require_once 'queries/admin-check.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 
 <?php
-  require "components/head.php";
+require_once "components/head.php";
 ?>
 
 <body>
@@ -115,16 +116,6 @@ require_once 'config/config.php';
         <?php
         };
         ?>
-    </div>
-
-    <!-- password reset modal -->
-    <div id="password-reset-modal" class="modal">
-        <div class="modal-content">
-            <h4>Réinitialiser Mot de Passe</h4>
-            <p>A bunch of text</p>
-
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Annuler</a>
-        </div>
     </div>
 
     <!--JavaScript at end of body for optimized loading-->

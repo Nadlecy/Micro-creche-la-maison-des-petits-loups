@@ -1,8 +1,12 @@
+<?php
+require_once 'config/config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
 <?php
-  require "components/head.php";
+require "components/head.php";
 ?>
 
 <body>
@@ -19,89 +23,48 @@
   ?>
 
 
-  <a href="admin-accounts.php">Admin</a>
+  <?php if (isset($_SESSION['user']) && $_SESSION['user']['admin'] == 1) { ?>
+    <div class="row">
+      <div class="col s12 m2 offset-m8">
+        <a class="btn" href="admin-accounts.php">Admin</a>
+      </div>
+    </div>
+  <?php } ?>
 
-  <div class= "container center-align">
+  <div class="container center-align">
     <h1>La Maison Des Petits Loups</h1>
     <h3>Micro Crèche à La Seyne-sur-Mer, Var</h3>
   </div>
 
   <div class="container">
     <div class="row">
-      <div class="col s12 m6 l3">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title">Card Title</span>
-            <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+      <?php
+      $sql = "SELECT * FROM `home-intro-boxes` WHERE 1";
+      $pre = $pdo->prepare($sql); //on prévient la base de données qu'on va executer une requête
+      $pre->execute(); //on l'execute
+      $boxes = $pre->fetchAll(PDO::FETCH_ASSOC); // on stocke les données dans $data
+      foreach ($boxes as $box) {
+        if ($box['title'] != "") {
+      ?>
+          <div class="col s12 m4">
+            <div class="card">
+              <div class="card-image home-box-image">
+                <img class="responsive-img" src=<?php echo 'images/' . $box['image'] ?>>
+                <span class="card-title"><?php echo $box['title'] ?></span>
+              </div>
+              <div class="card-content home-box-content">
+                <p><?php echo nl2br($box['content']) ?></p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-
-      <div class="col s12 m6 l3">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title">Card Title</span>
-            <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 m6 l3">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title">Card Title</span>
-            <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 m6 l3">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title">Card Title</span>
-            <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
+      <?php
+        }
+      };
+      ?>
     </div>
   </div>
 
-  <div>
-    <div class="container "><!-- MODIFIABLE, donc BDD. Images.-->
-      Cette association loi 1901 est une micro-crèche qui accueille, simultanément, 10 enfants âgés de 2 ½ mois à leur entrée à l'école maternelle : C'est le compromis parfait entre un accueil collectif et un accueil individualisé.<br>
-      <br>
-      Une équipe, composée de six professionnelles, veille à proposer, parfois solliciter, verbaliser, encourager et féliciter vos « petits bouts » sans jamais les forcer.<br>
-      <br>
-      Rire, jouer, communiquer, apprendre, recevoir des câlins, se reposer sera le quotidien de vos « P'tits Loups ». Ce sera pour l'équipe la plus belle des motivations.<br>
-      <br>
-      {quelques photos d'activités si possible}<br>
-      <br>
-      Le projet pédagogique s'articule autour des enfants :<br>
-      <br>
-      « La Maison des P'tits Loups » propose pour chaque enfant, un accueil individualisé afin qu'il puisse s'épanouir, grandir à son rythme dans un cadre sécurisant aussi bien psychologique que physique, l'accompagne dans son apprentissage intellectuel et physique, dans le respect de l'éducation dispensée par ses parents.<br>
-      <br>
-      L'équipe veillera à parler avec des mots justes, avec un maximum de vocabulaire tout au long de la journée. Les formules de politesse (bonjour, au revoir, s'il te plait, merci, pardon) seront dites à chaque fois qu'il le sera nécessaire afin d'inciter les enfants à en faire de même.
-      Respecter l'enfant de la même façon que l'adulte sera respecté.<br>
-      <br>
-      Laisser l'enfant au maximum « faire seul » afin qu'il prenne son autonomie.<br>
-      <br>
-      Le jeu occupe une place très importante au sein de la structure : jouer c'est découvrir son environnement, éprouver un sentiment de maîtrise, imaginer et créer, expérimenter le plaisir.<br>
-      <br>
-      Mais les parents sont aussi pris en compte :<br>
-      <br>
-      Un « boîte à idées » sera à la disposition des parents à l'accueil ; l'équipe prendra en compte le souhait de ces derniers.<br>
-      <br>
-      Il pourra être proposé une réunion trimestrielle Parents/Professionnels de la Petite Enfance, un temps « café des parents » mensuel, un petit spectacle de fin d'année ainsi qu'un pique nique avant les congés d'été.<br>
-      <br>
-      La communication entre les parents et l'équipe est une des valeurs de la structure.
-    </div>
-  </div>
-
-  <div class= "container">
+  <div class="container">
     Actualité récente
   </div>
 

@@ -3,7 +3,7 @@ $(document).ready(function(){
   $('.sidenav').sidenav();
   $('.modal').modal();
   $('select').formSelect();
-  $('slider').slider();
+  $('input.charactercount , textarea.charactercount').characterCounter();
 });
 
 //making a sticky nav bar

@@ -31,9 +31,7 @@
                     <li><a href="admin-blog.php">News</a></li>
                     <li><a href="admin-text.php">Affichage</a></li>
                     <?php if (isset($_SESSION['user'])) { ?>
-                        <li>test</li>
-                    <?php } else { ?>
-                        <li><a data-target="login-modal" class="modal-trigger">Se Connecter</a></li>
+                        <li><a href="queries/logout.php">Se déconnecter</a></li>
                     <?php }; ?>
                 </ul>
 
@@ -43,9 +41,7 @@
                     <li><a href="admin-blog.php">News</a></li>
                     <li><a href="admin-text.php">Affichage</a></li>
                     <?php if (isset($_SESSION['user'])) { ?>
-                        <li>test</li>
-                    <?php } else { ?>
-                        <li><a data-target="login-modal" class="modal-trigger">Se Connecter</a></li>
+                        <li><a href="queries/logout.php">Se déconnecter</a></li>
                     <?php }; ?>
                 </ul>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>

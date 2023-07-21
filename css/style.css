@@ -38,3 +38,15 @@ nav {
 h1 {
   font-family: 'Kaushan Script', serif;
 }
+
+.home-box-image {
+  overflow: hidden;
+  height: 200px !important;
+}
+
+
+#logo-footer{
+  margin-top: -10px;
+  max-width: 130%;
+  padding-bottom: 0px;
+}
