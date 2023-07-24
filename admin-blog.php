@@ -78,8 +78,13 @@ require "components/head.php";
                         </select>
                     </div>
                 </div>
-
                 <input class="btn blue accent-2" type="submit" name="submit" value="Créer">
+                <?php
+                if (isset($_SESSION["error"])) {
+                    echo "<div class='left red-text'>" . $_SESSION["error"] . "</div>";
+                    unset($_SESSION["error"]);
+                };
+                ?>
             </form>
         </div>
     </div>
@@ -98,7 +103,9 @@ require "components/head.php";
                 $date = date_create($article["date"])
             ?>
                 <li>
-                    <div class="collapsible-header"><?php echo $article["title"] . " - " . date_format($date, "d/m/Y") ?></div>
+                    <div class="collapsible-header">
+                        <h4><?php echo $article["title"] . " - " . date_format($date, "d/m/Y") ?></h4>
+                    </div>
                     <div class="collapsible-body">
                         <span class="row">
                             <p class="col s12"><?php echo nl2br($article["content"]) ?></p>
@@ -116,6 +123,23 @@ require "components/head.php";
                             };
                             ?>
                         </span>
+                        <div>
+                            <?php
+                            if ($article['visibility'] == 0) {
+                                echo "<p class='red-text text-darken-4'>Tout le monde peut voir cet article.</p>";
+                            } else {
+                                echo "<p class='red-text text-darken-4'>peuvent voir cet article: ";
+                                $sql = "SELECT `first_name`, `last_name` FROM `accounts` JOIN `articles-access` ON `accounts`.`id` = `articles-access`.`account-id` WHERE `articles-access`.`article-id` =" . $article['id'];
+                                $pre = $pdo->prepare($sql); //on prévient la base de données qu'on va executer une requête
+                                $pre->execute(); //on l'execute
+                                $articleaccess = $pre->fetchAll(PDO::FETCH_ASSOC); // on stocke les données dans $data
+                                foreach ($articleaccess as $user) {
+                                    echo $user['first_name'] . ' ' . $user['last_name'] . '. ';
+                                };
+                                echo " </p>";
+                            }
+                            ?>
+                        </div>
                         <form class="row" method="post" action="queries/article-delete.php">
                             <input type="hidden" name="id" value="<?php echo $article['id']; ?>">
                             <input class="btn blue accent-2" type="submit" name="submit" value="Supprimer">

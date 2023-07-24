@@ -11,9 +11,10 @@ if (empty($_POST["title"])) {
     // insert in articles
     $databinded = array(
         ':title' => $_POST["title"],
-        ':content' => $_POST["content"]
+        ':content' => $_POST["content"],
+        ':visibility' => $_POST["visibility"]
     );
-    $sql = "INSERT INTO articles (title, content) VALUES (:title, :content)";
+    $sql = "INSERT INTO articles (title, content, visibility) VALUES (:title, :content, :visibility)";
     $pre = $pdo->prepare($sql); //on prévient la base de données qu'on va executer une requête
     $pre->execute($databinded); //on l'execute
 
@@ -23,7 +24,6 @@ if (empty($_POST["title"])) {
     $pre->execute(); //on l'execute
     $lastArticleIdArray = $pre->fetch(PDO::FETCH_ASSOC); // on stocke les données dans $articleImageIds
     $articleId = $lastArticleIdArray['id']; //on passe l'id dans $articleId
-    echo "<br> article id is: " .$articleId ."<br>";
 
     if (isset($_FILES['upload']['name']) && $_FILES['upload']['name'] != "") {
         // insert in articles-images
@@ -49,26 +49,24 @@ if (empty($_POST["title"])) {
                         echo "File is an image - " . $check["mime"] . ".";
                         $uploadOk = 1;
                     } else {
-                        echo "File is not an image.";
                         $uploadOk = 0;
                     }
                 }
 
                 // Check if file already exists
                 if (file_exists($target_file)) {
-                    echo "Sorry, file already exists.";
+                    $_SESSION['error'] = "Un des fichiers existe déjà.";
                     $uploadOk = 0;
                 }
 
                 // Check file size
                 if ($_FILES["upload"]["size"][$i] > 500000) {
-                    echo "Sorry, your file is too large.";
+                    $_SESSION['error'] = "Un des fichiers est trop large; la limite est de 500 kilooctets par fichier.";
                     $uploadOk = 0;
                 }
 
                 // Check if $uploadOk is set to 0 by an error
                 if ($uploadOk == 0) {
-                    echo "Sorry, your file was not uploaded.";
                     // if everything is ok, try to upload file
 
                 } else {
@@ -84,7 +82,7 @@ if (empty($_POST["title"])) {
                         $pre = $pdo->prepare($sql);
                         $pre->execute($dataBinded);
                     } else {
-                        echo "Sorry, there was an error uploading your file.";
+                        $_SESSION['error'] = "Une erreur inattendue est survenue.";
                     }
                 }
             }

@@ -73,7 +73,7 @@
         <div class="modal-footer">
             <?php
             if (isset($_SESSION["error"])) {
-                echo "<div class='left red '>" . $_SESSION["error"] . "</div>";
+                echo "<div class='left red-text'>" . $_SESSION["error"] . "</div>";
                 unset($_SESSION["error"]);
             };
             ?>
