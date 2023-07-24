@@ -19,7 +19,7 @@
         <nav id="navbar" class="red lighten-3" role="navigation">
             <div class="nav-wrapper container">
                 <a id="logo-container" href="index.php" class="brand-logo">
-                    <img id="logo-nav" src="images/logo-maison-des-ptits-loups-la-seyne.svg" width="330px" height="150px" alt="Logo">
+                    <img id="logo-nav" src="images/logo-maison-des-ptits-loups-la-seyne.svg" width="165px" height="75px" alt="Logo">
                 </a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="index.php">Accueil</a></li>
@@ -29,7 +29,11 @@
                         <li><a href="queries/logout.php">Se déconnecter</a></li>
                     <?php } else { ?>
                         <li><a data-target="login-modal" class="modal-trigger">Se Connecter</a></li>
-                    <?php }; ?>
+                    <?php
+                    };
+                    if (isset($_SESSION['user']) && $_SESSION['user']['admin'] == 1) { ?>
+                        <li><a class="blue accent-1" href="admin-accounts.php">Admin</a></li>
+                    <?php } ?>
                 </ul>
 
                 <ul id="nav-mobile" class="sidenav">
@@ -40,7 +44,10 @@
                         <li><a href="queries/logout.php">Se déconnecter</a></li>
                     <?php } else { ?>
                         <li><a data-target="login-modal" class="modal-trigger">Se Connecter</a></li>
-                    <?php }; ?>
+                    <?php };
+                    if (isset($_SESSION['user']) && $_SESSION['user']['admin'] == 1) { ?>
+                        <li><a class="blue accent-1" href="admin-accounts.php">Admin</a></li>
+                    <?php } ?>
                 </ul>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             </div>
@@ -52,17 +59,15 @@
         <div class="modal-content">
             <h4>Connexion</h4>
             <form class="row" method="post" action="queries/login.php">
-                <div class="input-field col s12 m6 offset-m3">
+                <div class="input-field col s12">
                     <i class="material-icons prefix">person</i>
                     <input id="email" type="text" name="email" class="validate" />
                     <label for="email">Adresse Email</label>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12 m6 offset-m3">
-                        <i class="material-icons prefix ">key</i>
-                        <input id="password" type="password" name="password" class="validate" />
-                        <label for="password">Mot de Passe</label>
-                    </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix ">key</i>
+                    <input id="password" type="password" name="password" class="validate" />
+                    <label for="password">Mot de Passe</label>
                 </div>
         </div>
         <div class="modal-footer">
@@ -73,7 +78,7 @@
             };
             ?>
             <a href="#!" class="modal-close waves-effect waves btn-flat">Annuler</a>
-            <button class="btn waves-effect waves-light pink lighten-1" type="submit">Se Connecter</button>
+            <button class="btn waves-effect waves-light red lighten-2" type="submit">Se Connecter</button>
             </form>
         </div>
     </div>

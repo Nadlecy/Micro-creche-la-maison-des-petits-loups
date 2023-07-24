@@ -23,13 +23,6 @@ require "components/head.php";
   ?>
 
 
-  <?php if (isset($_SESSION['user']) && $_SESSION['user']['admin'] == 1) { ?>
-    <div class="row">
-      <div class="col s12 m2 offset-m8">
-        <a class="btn" href="admin-accounts.php">Admin</a>
-      </div>
-    </div>
-  <?php } ?>
 
   <div class="container center-align">
     <h1>La Maison Des Petits Loups</h1>
@@ -69,28 +62,29 @@ require "components/head.php";
   </div>
 
   <div>
-    <div class=" container">
-      La maison est ouverte:
-      Du lundi au vendredi
-      De 7h30 à 18h00
-
-
-      Nous ne sommes pas disponibles :
-
-      1 semaine au printemps
-      3 semaines l'été
-      1 semaine entre Noël et Jour de l'An
-      Ainsi que le vendredi suivant le jeudi de l'Ascension.
-
-      Qui sommes-nous ?
-
-      Un Cap petite enfance 6 ans d'expérience petite enfance sera présente, en appui avec une éducatrice de jeunes enfants intervenant 3h par mois.
-      Une éducatrice de jeunes enfants (licence psycho) pour l'analyse de la pratique.
-      Trois professionnel(le)s de la Petite Enfance titulaires d'un CAP, relevant de l'arrêté ministériel du 26 décembre 2000, modifié par l'arrêté ministériel du 3 décembre 2018, relatif au personnel des établissements participants à l'encadrement des enfants de moins de 6ans.
-
-      Toutes seront à votre écoute et à votre disposition pour toutes questions que vous poserez,
-      Partageront leur savoir-faire et leur savoir-être et prendront plaisir à s'occuper de vos « P'tits Loups » dans la joie et la bonne humeur !
-
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m8 offset-m2">
+          <?php
+          $sql = "SELECT * FROM `home-middle-boxes` WHERE 1";
+          $pre = $pdo->prepare($sql); //on prévient la base de données qu'on va executer une requête
+          $pre->execute(); //on l'execute
+          $boxes = $pre->fetchAll(PDO::FETCH_ASSOC); // on stocke les données dans $data
+          foreach ($boxes as $box) {
+            if ($box['title'] != "") {
+          ?>
+              <div class="col s12 m6">
+                <h4 class="center"><?php echo $box['title'] ?></h4>
+                <div>
+                  <p class="center"><?php echo nl2br($box['content']) ?></p>
+                </div>
+              </div>
+          <?php
+            }
+          };
+          ?>
+        </div>
+      </div>
       Nos locaux :
 
       Situé au Business Park des Playes (anciennement l'Espace Noral), le local d'une superficie de 93 m2, en rez-de-chaussée, était un bureau d'architectes.

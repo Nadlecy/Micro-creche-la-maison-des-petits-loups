@@ -2,7 +2,8 @@
 <html lang="fr">
 
 <?php
-  require "components/head.php";
+  require_once "components/head.php";
+  require_once "config/config.php";
 ?>
 
 <body>

@@ -7,7 +7,7 @@ require_once 'queries/admin-check.php';
 <html lang="fr">
 
 <?php
-  require "components/head.php";
+require "components/head.php";
 ?>
 
 <body>
@@ -23,7 +23,7 @@ require_once 'queries/admin-check.php';
     <div class="container">
         <h4>Nouvel article</h4>
         <div class="card">
-            <form method="post" action="queries/article-create.php">
+            <form method="post" action="queries/article-create.php" enctype='multipart/form-data'>
 
                 <!-- adding text values -->
                 <div class="row">
@@ -42,16 +42,8 @@ require_once 'queries/admin-check.php';
                 <!-- choosing pictures -->
                 <div class="row">
                     <div class="col s12 m4">
-                        <label for="image1">Image 1:</label>
-                        <input type="file" name="image1" id="image1" accept="image/*">
-                    </div>
-                    <div class="col s12 m4">
-                        <label for="image2">Image 2:</label>
-                        <input type="file" name="image2" id="image2" accept="image/*">
-                    </div>
-                    <div class="col s12 m4">
-                        <label for="image3">Image 3:</label>
-                        <input type="file" name="image3" id="image3" accept="image/*">
+                        <label for="image1">Vos images (pensez à toutes les sélectionner en une fois):</label>
+                        <input type="file" name="upload[]" id="image1" accept="image/*" multiple>
                     </div>
                 </div>
 
@@ -60,11 +52,11 @@ require_once 'queries/admin-check.php';
                     <div class="col s12 m6">
                         <label for="visibility">Visibilité:</label>
                         <label>
-                            <input class="with-gap" type="radio" name="visibility" value="public" checked />
+                            <input class="with-gap" type="radio" name="visibility" value=0 checked />
                             <span>Public</span>
                         </label>
                         <label>
-                            <input class="with-gap" type="radio" name="visibility" value="private" />
+                            <input class="with-gap" type="radio" name="visibility" value=1 />
                             <span>Private</span>
                         </label>
                     </div>
@@ -79,7 +71,7 @@ require_once 'queries/admin-check.php';
                             $data = $pre->fetchAll(PDO::FETCH_ASSOC); // on stocke les données dans $data
                             foreach ($data as $userData) {
                             ?>
-                                <option value=<?php echo $userData['id']; ?>> <?php echo $userData['last_name']; ?> <?php echo $userData['first_name']; ?></option>
+                                <option value=<?php echo $userData['id']; ?>> <?php echo $userData['last_name'] . " " . $userData['first_name']; ?></option>
                             <?php
                             };
                             ?>
@@ -87,13 +79,53 @@ require_once 'queries/admin-check.php';
                     </div>
                 </div>
 
-                <input type="submit" name="submit" value="Créer">
+                <input class="btn blue accent-2" type="submit" name="submit" value="Créer">
             </form>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container ">
         <h4>Liste des articles</h4>
+
+        <ul class="collapsible">
+            <?php
+            $sql = "SELECT * FROM `articles` ORDER BY `date` DESC";
+            $pre = $pdo->prepare($sql); //on prévient la base de données qu'on va executer une requête
+            $pre->execute(); //on l'execute
+            $data = $pre->fetchAll(PDO::FETCH_ASSOC); // on stocke les données dans $data
+            foreach ($data as $article) {
+
+                $date = date_create($article["date"])
+            ?>
+                <li>
+                    <div class="collapsible-header"><?php echo $article["title"] . " - " . date_format($date, "d/m/Y") ?></div>
+                    <div class="collapsible-body">
+                        <span class="row">
+                            <p class="col s12"><?php echo nl2br($article["content"]) ?></p>
+                            <?php
+                            $sql = "SELECT * FROM `articles-images` WHERE `article-id` =" . $article['id'];
+                            $pre = $pdo->prepare($sql); //on prévient la base de données qu'on va executer une requête
+                            $pre->execute(); //on l'execute
+                            $articleimages = $pre->fetchAll(PDO::FETCH_ASSOC); // on stocke les données dans $data
+                            foreach ($articleimages as $oneimage) {
+                            ?>
+                                <div class="input-field col s12 m6">
+                                    <img class="responsive-img" src="images/<?php echo $oneimage['filename'] ?>" alt="<?php echo $oneimage['filename'] ?>">
+                                </div>
+                            <?php
+                            };
+                            ?>
+                        </span>
+                        <form class="row" method="post" action="queries/article-delete.php">
+                            <input type="hidden" name="id" value="<?php echo $article['id']; ?>">
+                            <input class="btn blue accent-2" type="submit" name="submit" value="Supprimer">
+                        </form>
+                    </div>
+                </li>
+            <?php
+            };
+            ?>
+        </ul>
     </div>
 
     <!--JavaScript at end of body for optimized loading-->

@@ -23,7 +23,8 @@
         <nav id="navbar" class="blue accent-1" role="navigation">
             <div class="nav-wrapper container">
                 <a id="logo-container" href="index.php" class="brand-logo">
-                    <img class="fit-picture" src="/images/logo.jpg" alt="Logo">
+                    <img id="logo-nav" src="images/logo-maison-des-ptits-loups-la-seyne.svg" width="165px" height="75px" alt="Logo">
+                </a>
                 </a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="index.php">Retour</a></li>

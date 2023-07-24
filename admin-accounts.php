@@ -23,7 +23,7 @@ require_once "components/head.php";
     <div class="container">
         <h4>Nouveau compte</h4>
         <div class="card ">
-            <form class="row amber lighten-4" method="post" action="queries/signup.php">
+            <form class="row" method="post" action="queries/signup.php">
                 <div class="input-field col s12 m4">
                     <i class="material-icons prefix ">person</i>
                     <input id="first_name" type="text" name="first_name" class="validate" />
@@ -55,13 +55,15 @@ require_once "components/head.php";
                     </select>
                     <label>Type de compte</label>
                 </div>
-                <button class="btn waves-effect waves-light pink lighten-1" type="submit">Créer</button>
-                <?php
-                if (isset($_SESSION["error"])) {
-                    echo "<div class='left red '>" . $_SESSION["error"] . "</div>";
-                    unset($_SESSION["error"]);
-                };
-                ?>
+                <div class="input-field col s12 m4 center">
+                    <button class="btn waves-effect waves-light blue accent-2" type="submit">Créer</button>
+                    <?php
+                    if (isset($_SESSION["error"])) {
+                        echo "<div class='left red '>" . $_SESSION["error"] . "</div>";
+                        unset($_SESSION["error"]);
+                    };
+                    ?>
+                </div>
             </form>
         </div>
     </div>
@@ -77,7 +79,7 @@ require_once "components/head.php";
         ?>
             <!-- account cards -->
             <div class="card">
-                <div class="card-content amber lighten-4">
+                <div class="card-content">
                     <div class="row">
                         <div class="col s12 m6">
                             <p><strong>Nom :</strong> <?php echo $userData['last_name']; ?></p>

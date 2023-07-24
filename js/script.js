@@ -4,6 +4,7 @@ $(document).ready(function(){
   $('.modal').modal();
   $('select').formSelect();
   $('input.charactercount , textarea.charactercount').characterCounter();
+  $('.collapsible').collapsible();
 });
 
 //making a sticky nav bar
