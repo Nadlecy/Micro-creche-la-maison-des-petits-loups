@@ -18,7 +18,7 @@
     <div id="wrapper">
         <nav id="navbar" class="red lighten-3" role="navigation">
             <div class="nav-wrapper container">
-                <a id="logo-container" href="index.php" class="brand-logo">
+                <a id="logo-container" href="#" class="brand-logo">
                     <img id="logo-nav" src="images/logo-maison-des-ptits-loups-la-seyne.svg" width="165px" height="75px" alt="Logo">
                 </a>
                 <ul class="right hide-on-med-and-down">

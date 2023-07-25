@@ -217,8 +217,9 @@ require_once "components/head.php";
 
 
 
+        <hr>
 
-        
+
         <!-- register page content -->
         <h4 id="register-edit">Préinscription</h4>
         <?php
@@ -272,7 +273,7 @@ require_once "components/head.php";
             </div>
         <?php } ?>
 
-
+        <hr>
 
 
         <!-- footer content -->

@@ -9,11 +9,24 @@
 <body>
   <?php
   include 'components/nav.php';
+
+  
+  $sql = "SELECT * FROM `register-text`";
+  $pre = $pdo->prepare($sql);
+  $pre->execute();
+  $registerpagecontent = $pre->fetchAll(PDO::FETCH_ASSOC);
+  foreach ($registerpagecontent as $register) {
   ?>
-
-
-
+    <div class="container row">
+      <div class="col s12 l6">
+        fddfs
+      </div>
+      <div class="col s12 l6">
+        fddfs
+      </div>
+    </div>
   <?php
+  }
   include 'components/footer.php';
   ?>
   <!--JavaScript at end of body for optimized loading-->

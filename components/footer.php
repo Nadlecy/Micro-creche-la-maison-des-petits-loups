@@ -47,7 +47,7 @@ require_once "config/config.php";
   </div>
   <div class="footer-copyright">
     <div class="container">
-      copyright thing
+      © COM IT UP 2023 - tous droits réservés - LA MAISON DES PETITS LOUPS
     </div>
   </div>
 </footer>
