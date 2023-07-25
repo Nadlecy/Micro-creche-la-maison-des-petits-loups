@@ -5,6 +5,10 @@ $(document).ready(function(){
   $('select').formSelect();
   $('input.charactercount , textarea.charactercount').characterCounter();
   $('.collapsible').collapsible();
+  $('.materialboxed').materialbox();
+
+  $('.slider').slider();
+  $('.carousel').carousel();
 });
 
 //making a sticky nav bar
@@ -17,5 +21,3 @@ document.addEventListener('DOMContentLoaded', function () {
 $('#navbar').pushpin({
   top: $('#wrapper').offset().top
 });
-
-

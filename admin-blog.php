@@ -28,13 +28,13 @@ require "components/head.php";
                 <!-- adding text values -->
                 <div class="row">
                     <div class="input-field col s12 m4">
-                        <input id="title" type="text" name="title" class="validate" />
+                        <input id="title" type="text" name="title" class="validate charactercount" data-length="50"/>
                         <label for="title">Titre</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="content" name="content" class="materialize-textarea" data-length="1000"></textarea>
+                        <textarea id="content" name="content" class="materialize-textarea charactercount" data-length="1000"></textarea>
                         <label for="content">Contenu</label>
                     </div>
                 </div>

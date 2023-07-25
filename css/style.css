@@ -12,16 +12,16 @@ nav {
   z-index: 2;
 }
 
-nav a{
+nav a {
   font-size: 1.2em !important;
 }
 
-.pinned #logo-nav{
+.pinned #logo-nav {
   height: 75px;
   transition: margin-top 1s, height 1s, width 1s;
 }
 
-.pin-top #logo-nav{
+.pin-top #logo-nav {
   margin-top: -40px;
   width: 330px;
   height: 150px;
@@ -41,12 +41,12 @@ nav a{
   max-width: 400px;
 }
 
-.main-title{
+.main-title {
   height: 0;
   padding-top: 33%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center; 
+  background-position: center;
   background-image: url(../images/maison-des-ptits-loups-grand-titre.jpg);
   overflow: visible;
 }
@@ -64,8 +64,22 @@ h2 {
   height: 200px !important;
 }
 
+hr {
+  border: 0;
+  border-top: solid #CCC;
+  max-width: 800px;
+}
 
-#logo-footer{
+.news-image {
+  max-width: 75%;
+  width: 100%;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#logo-footer {
   margin-top: -10px;
   max-width: 130%;
   padding-bottom: 0px;

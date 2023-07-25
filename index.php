@@ -42,7 +42,7 @@ require "components/head.php";
           <div class="col s12 m4">
             <div class="card">
               <div class="card-image home-box-image">
-                <img class="responsive-img" src=<?php echo 'images/' . $box['image'] ?>>
+                <img class="circle responsive-img" src=<?php echo 'images/' . $box['image'] ?>>
                 <span class="card-title"><?php echo $box['title'] ?></span>
               </div>
               <div class="card-content home-box-content">
@@ -85,32 +85,6 @@ require "components/head.php";
           ?>
         </div>
       </div>
-      Nos locaux :
-
-      Situé au Business Park des Playes (anciennement l'Espace Noral), le local d'une superficie de 93 m2, en rez-de-chaussée, était un bureau d'architectes.
-
-      Vous pourrez aisément vous garer.
-
-      Huit fenêtres d'une largeur totale de 11,50 m apportent de la lumière qui peut être tamisée par des stores vénitiens.
-
-      Afin de laisser un grand espace de vie pour les enfants, nous avons créé autour de ce dernier :
-
-      Un accueil où vous pourrez prendre le temps d'habiller ou déshabiller votre « petit bout », un panneau d'affichage vous indiquera les moments forts de la micro-crèche,
-
-      Un bureau où vous pourrez parler en toute discrétion avec l'équipe,
-
-      Une chambre pour les « bébés »,
-
-      Une chambre pour les « grands » qui servira de salle d'activité en dehors des siestes
-      (Ces chambres sont équipées de cloisons phoniques afin que le sommeil des «P'tits Loups» ne soit pas perturbé par le bruit),
-
-      Un espace change où se trouvent une table à langer, un toilette ainsi qu'un lavabo pour les petits et une armoire où seront rangés les changes (à noter que pour l'intimité des enfants un seul d'entre eux sera changé au fur et à mesure),
-
-      Un espace buanderie avec lave linge et sèche linge,
-
-      Un espace cuisine avec évier, lave main à commande non manuelle, deux réfrigérateurs (un pour les enfants, un pour le personnel) ainsi qu'un micro onde,
-
-      Et enfin une large pièce pour les enfants que l'on a rendu « cocooning » grâce à différents espaces dédiés au regroupement, à la lecture, aux chansons, aux activités, à la motricité, aux jeux de rôle (poupée, cuisine).
       <?php
       ?>
     </div>

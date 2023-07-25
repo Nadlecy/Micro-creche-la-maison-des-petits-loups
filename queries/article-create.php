@@ -46,7 +46,6 @@ if (empty($_POST["title"])) {
                 if (isset($_POST["submit"])) {
                     $check = getimagesize($_FILES["upload"]["tmp_name"][$i]);
                     if ($check !== false) {
-                        echo "File is an image - " . $check["mime"] . ".";
                         $uploadOk = 1;
                     } else {
                         $uploadOk = 0;
@@ -71,7 +70,6 @@ if (empty($_POST["title"])) {
 
                 } else {
                     if (move_uploaded_file($_FILES["upload"]["tmp_name"][$i], $target_file)) {
-                        echo "The file " . htmlspecialchars($_FILES["upload"]["name"][$i]) . " has been uploaded.";
 
                         //update the database
                         $sql = "INSERT INTO `articles-images` (`filename`, `article-id`) VALUES  (:newimage, :articleid)";
