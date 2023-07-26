@@ -18,12 +18,10 @@ require_once "components/head.php";
 
     <div class="container">
         <h3>Gestion du texte sur les pages</h3>
-    </div>
 
-    <!-- liste des différents paragraphes -->
+        <!-- liste des différents paragraphes -->
 
 
-    <div class="container">
         <h4 id="home-top-box-edit">Page d'accueil</h4>
 
         <!-- top boxes -->
@@ -79,9 +77,11 @@ require_once "components/head.php";
             };
             ?>
         </div>
-
-        <!-- middle boxes -->
-        <div class="row" id="home-middle-edit">
+    </div>
+    <hr>
+    <!-- middle boxes -->
+    <section id="home-middle-edit">
+        <div class="row">
             <?php
             $sql = "SELECT * FROM `home-middle-boxes` WHERE 1";
             $pre = $pdo->prepare($sql);
@@ -89,7 +89,7 @@ require_once "components/head.php";
             $boxes = $pre->fetchAll(PDO::FETCH_ASSOC);
             foreach ($boxes as $box) {
             ?>
-                <div class="col s12 m4 offset-m1">
+                <div class="col s12 l3 offset-l1">
                     <div class="row card">
                         <form class="col s12" method="post" action="queries/home-middle-update.php">
                             <div class="row">
@@ -111,8 +111,10 @@ require_once "components/head.php";
                 </div>
             <?php }; ?>
         </div>
+    </section>
 
-        <!-- bottom images -->
+    <div class="container">
+        <!-- pictures of the kindergarten -->
         <div class="row" id="home-bottom-edit">
             <h4>Images des locaux</h4>
 
@@ -286,25 +288,54 @@ require_once "components/head.php";
             $boxes = $pre->fetchAll(PDO::FETCH_ASSOC); // on stocke les données dans $data
             foreach ($boxes as $box) {
             ?>
-                <div class="col s12 m4 offset-m1">
-                    <div class="row card">
-                        <form class="col s12" method="post" action="queries/footer-box-update.php">
-                            <div class="row">
-                                <div class="input-field col s12 m6">
-                                    <textarea name="title" type="text" class="validate materialize-textarea charactercount" data-length="60"><?php echo $box["title"] ?></textarea>
-                                    <label for="title">Titre</label>
+                <div class="col s12 card">
+                    <form method="post" action="queries/footer-box-update.php">
+
+                        <div class="row ">
+                            <div class="col s12 l6">
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <textarea name="title1" type="text" class="validate materialize-textarea charactercount" data-length="60"><?php echo $box["title1"] ?></textarea>
+                                        <label for="title1">Titre 1</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea name="content" type="text" class="validate materialize-textarea charactercount" data-length="300"><?php echo $box["content"] ?></textarea>
+                                        <label for="content">Contenu</label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <textarea name="content" type="text" class="validate materialize-textarea charactercount" data-length="300"><?php echo $box["content"] ?></textarea>
-                                    <label for="content">Contenu</label>
+                            <div class="col s12 l6">
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <textarea name="title2" type="text" class="validate materialize-textarea charactercount" data-length="60"><?php echo $box["title2"] ?></textarea>
+                                        <label for="title2">Titre 2</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <textarea name="email" type="email" class="validate materialize-textarea"><?php echo $box["email"] ?></textarea>
+                                        <label for="email">Adresse Mail</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <textarea name="phone1" type="text" class="validate materialize-textarea" placeholder="0123456789"><?php echo "0" . $box["phone1"] ?></textarea>
+                                        <label for="phone1">Téléphone 1</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <textarea name="phone2" type="text" class="validate materialize-textarea" placeholder="0123456789"><?php echo "0" . $box["phone2"] ?></textarea>
+                                        <label for="phone2">Téléphone 2 (optionnel)</label>
+                                    </div>
                                 </div>
                             </div>
-                            <input type="hidden" name="id" value="<?php echo $box['id']; ?>">
-                            <button class="btn blue accent-2" type="submit">Modifier</button>
-                        </form>
-                    </div>
+                        </div>
+                        <input type="hidden" name="id" value="<?php echo $box['id']; ?>">
+                        <button class="btn blue accent-2" type="submit">Modifier</button>
+                    </form>
                 </div>
             <?php }; ?>
         </div>

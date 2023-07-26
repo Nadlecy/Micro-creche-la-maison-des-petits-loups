@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>La Maison des Petits Loups</title>
-
-    <!--                                                        VRemove all this afterV              -->
-    <link type="text/css" rel="stylesheet" href="css/style.css?<?php echo time(); ?>" media="screen,projection" />
-
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
-
+<?php
+require_once "head.php";
+?>
 
 <body>
     <div id="wrapper">
@@ -38,14 +29,18 @@
 
                 <ul id="nav-mobile" class="sidenav">
                     <li><a href="index.php">Accueil</a></li>
+                    <hr>
                     <li><a href="blog.php">Actualité</a></li>
+                    <hr>
                     <li><a href="preinscriptions.php">Préinscriptions</a></li>
+                    <hr>
                     <?php if (isset($_SESSION['user'])) { ?>
                         <li><a href="queries/logout.php">Se déconnecter</a></li>
                     <?php } else { ?>
                         <li><a data-target="login-modal" class="modal-trigger">Se Connecter</a></li>
                     <?php };
                     if (isset($_SESSION['user']) && $_SESSION['user']['admin'] == 1) { ?>
+                        <hr>
                         <li><a class="blue accent-1" href="admin-accounts.php">Admin</a></li>
                     <?php } ?>
                 </ul>
@@ -54,7 +49,7 @@
         </nav>
     </div>
 
-    <!-- Login Modal !!!!!!!!!!!!! ISSUE SOMEWHERE, DOESNT LOGIN !!!!!!!!!!!!!-->
+    <!-- Login Modal -->
     <div id="login-modal" class="modal col s12 m6 l4">
         <div class="modal-content">
             <h4>Connexion</h4>

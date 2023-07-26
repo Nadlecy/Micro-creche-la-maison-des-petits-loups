@@ -2,6 +2,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>La Maison des Petits Loups</title>
+
+  <!-- Import Browser Icon -->
+  <link rel="shortcut icon" href="images/icone-maison-des-petits-loups.ico">
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import Google Fonts-->
@@ -10,7 +13,6 @@
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
 
-  <!--                                                        VRemove all this afterV              -->
   <link type="text/css" rel="stylesheet" href="css/style.css?<?php echo time(); ?>" media="screen,projection" />
 
   <!--Let browser know website is optimized for mobile-->

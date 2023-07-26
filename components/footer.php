@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <?php
+require_once "head.php";
 require_once "config/config.php";
 ?>
 
@@ -33,9 +34,19 @@ require_once "config/config.php";
       foreach ($boxes as $box) {
       ?>
         <div class="col l4 s12">
-          <h5 class="white-text"><?php echo $box['title'] ?></h5>
+          <h5 class="white-text"><?php echo $box['title1'] ?></h5>
           <p>
             <?php echo nl2br($box['content']) ?>
+          </p>
+        </div>
+        <div class="col l4 s12">
+          <h5 class="white-text"><?php echo $box['title2'] ?></h5>
+          <p>Tél: <a href="tel:+33<?php echo $box['phone1'] ?> "><?php echo "0" . $box['phone1'] ?></a>
+            <?php if (isset($box['phone2']) && $box['phone2'] != "") { ?>
+              ou <a href="tel:+33<?php echo $box['phone2'] ?> "><?php echo "0" . $box['phone2'] ?></a>
+            <?php }; ?>
+            <br>
+            Mail: <a href="mailto:<?php echo $box['email'] ?>"><?php echo $box['email'] ?></a>
           </p>
         </div>
       <?php }; ?>
@@ -47,7 +58,7 @@ require_once "config/config.php";
   </div>
   <div class="footer-copyright">
     <div class="container">
-      © COM IT UP 2023 - tous droits réservés - LA MAISON DES PETITS LOUPS
+      <b>La Maison des P'tits Loups</b> | SIRET : 75137073500027 | RNA : W832009446 | Réalisé par : <a href="mailto:bcleymand@gmail.com">Bruno CLEYMAND</a> aidé par l'<a href="https://comitup.fr/" target="_blank" rel="external" download>Agence COM IT UP</a>
     </div>
   </div>
 </footer>

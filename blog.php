@@ -12,7 +12,7 @@ require_once "config/config.php";
   ?>
 
   <div class="container">
-    <h2 class="center">L'actu des Petits Loups</h2>
+    <h2 class="center">L'actu des P'tits Loups</h2>
     <?php
     if (isset($_SESSION['user'])) {
       $sql = "SELECT * FROM `articles` JOIN `articles-access` ON `articles`.`id` = `articles-access`.`article-id` WHERE `articles-access`.`account-id` = 0 OR `articles-access`.`account-id` =" . $_SESSION['user']['id'] . " ORDER BY `articles`.`date` DESC";
