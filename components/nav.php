@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<?php
-require_once "head.php";
-?>
-
 <body>
     <div id="wrapper">
-        <nav id="navbar" class="red lighten-3" role="navigation">
+        <nav id="navbar" class="red lighten-2" role="navigation">
             <div class="nav-wrapper container">
                 <a id="logo-container" href="#" class="brand-logo">
                     <img id="logo-nav" src="images/logo-maison-des-ptits-loups-la-seyne.svg" width="165px" height="75px" alt="Logo">
@@ -15,6 +11,8 @@ require_once "head.php";
                 <ul class="right hide-on-med-and-down">
                     <li><a href="index.php">Accueil</a></li>
                     <li><a href="blog.php">Actualité</a></li>
+                    <li><a href="philosophie.php">Philosophie</a></li>
+                    <li><a href="local.php">Locaux</a></li>
                     <li><a href="preinscriptions.php">Préinscriptions</a></li>
                     <?php if (isset($_SESSION['user'])) { ?>
                         <li><a href="queries/logout.php">Se déconnecter</a></li>
@@ -23,11 +21,12 @@ require_once "head.php";
                     <?php
                     };
                     if (isset($_SESSION['user']) && $_SESSION['user']['admin'] == 1) { ?>
-                        <li><a class="blue accent-1" href="admin-accounts.php">Admin</a></li>
+                        <li><a class="purple" href="admin-accounts.php">Admin</a></li>
                     <?php } ?>
                 </ul>
 
                 <ul id="nav-mobile" class="sidenav">
+                    <li><a class="sidenav-close" href="#!"><i class="material-icons prefix grey-text text-darken-3">close</i> Fermer</a></li>
                     <li><a href="index.php">Accueil</a></li>
                     <hr>
                     <li><a href="blog.php">Actualité</a></li>
@@ -41,7 +40,7 @@ require_once "head.php";
                     <?php };
                     if (isset($_SESSION['user']) && $_SESSION['user']['admin'] == 1) { ?>
                         <hr>
-                        <li><a class="blue accent-1" href="admin-accounts.php">Admin</a></li>
+                        <li><a class="purple" href="admin-accounts.php">Admin</a></li>
                     <?php } ?>
                 </ul>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>

@@ -23,7 +23,7 @@ require_once "config/config.php";
 </head>
 
 
-<footer class="page-footer red lighten-3">
+<footer class="page-footer red lighten-2">
   <div class="container">
     <div class="row">
       <?php
@@ -41,14 +41,25 @@ require_once "config/config.php";
         </div>
         <div class="col l4 s12">
           <h5 class="white-text"><?php echo $box['title2'] ?></h5>
-          <p>Tél: <a href="tel:+33<?php echo $box['phone1'] ?> "><?php echo "0" . $box['phone1'] ?></a>
-            <?php if (isset($box['phone2']) && $box['phone2'] != "") { ?>
-              ou <a href="tel:+33<?php echo $box['phone2'] ?> "><?php echo "0" . $box['phone2'] ?></a>
+          <p>Tél: <a href="tel:+33<?php echo $box['phone1'] ?> "><u><?php echo "0" . $box['phone1'] ?></u></a>
+            <?php if (isset($box['phone2']) && $box['phone2'] != 0) { ?>
+              ou <a href="tel:+33<?php echo $box['phone2'] ?> "><u><?php echo "0" . $box['phone2'] ?></u></a>
             <?php }; ?>
             <br>
-            Mail: <a href="mailto:<?php echo $box['email'] ?>"><?php echo $box['email'] ?></a>
+            Mail: <a href="mailto:<?php echo $box['email'] ?>"><u><?php echo $box['email'] ?></u></a>
           </p>
         </div>
+
+        <div class="col l4 s12 mobile-show">
+          <h5>Joignables ici</h5>
+          <p class="mobile-contact" ><a href="tel:+33<?php echo $box['phone1'] ?> "><i class="large material-icons">phone</i></a>
+            <?php if (isset($box['phone2']) && $box['phone2'] != 0) { ?>
+              <a href="tel:+33<?php echo $box['phone2'] ?> "><i class="large material-icons">phone_iphone</i></a>
+            <?php }; ?>
+            <a href="mailto:<?php echo $box['email'] ?>"><i class="large material-icons">mail</i></a>
+          </p>
+        </div>
+
       <?php }; ?>
 
       <div class="col l4 s12 center">
@@ -56,9 +67,9 @@ require_once "config/config.php";
       </div>
     </div>
   </div>
-  <div class="footer-copyright">
+  <div class="footer-copyright red-text text-darken-2">
     <div class="container">
-      <b>La Maison des P'tits Loups</b> | SIRET : 75137073500027 | RNA : W832009446 | Réalisé par : <a href="mailto:bcleymand@gmail.com">Bruno CLEYMAND</a> aidé par l'<a href="https://comitup.fr/" target="_blank" rel="external" download>Agence COM IT UP</a>
+      <b>La Maison des P'tits Loups</b> | SIRET : 75137073500027 | RNA : W832009446 | Réalisé par : <a href="mailto:bcleymand@gmail.com"><u>Bruno CLEYMAND</u></a> aidé par l'<a href="https://comitup.fr/" target="_blank" rel="external" download><u>Agence COM IT UP</u></a>
     </div>
   </div>
 </footer>

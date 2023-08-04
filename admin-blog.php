@@ -78,7 +78,7 @@ require "components/head.php";
                         </select>
                     </div>
                 </div>
-                <input class="btn blue accent-2" type="submit" name="submit" value="Créer">
+                <input class="btn purple accent-2" type="submit" name="submit" value="Créer">
                 <?php
                 if (isset($_SESSION["error"])) {
                     echo "<div class='left red-text'>" . $_SESSION["error"] . "</div>";
@@ -142,7 +142,7 @@ require "components/head.php";
                         </div>
                         <form class="row" method="post" action="queries/article-delete.php">
                             <input type="hidden" name="id" value="<?php echo $article['id']; ?>">
-                            <input class="btn blue accent-2" type="submit" name="submit" value="Supprimer">
+                            <input class="btn purple accent-2" type="submit" name="submit" value="Supprimer">
                         </form>
                     </div>
                 </li>

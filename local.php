@@ -11,33 +11,25 @@ require_once "config/config.php";
   include 'components/nav.php';
 
 
-  $sql = "SELECT * FROM `register-text`";
+  $sql = "SELECT * FROM `other-pages` WHERE `id`=2";
   $pre = $pdo->prepare($sql);
   $pre->execute();
-  $registerpagecontent = $pre->fetchAll(PDO::FETCH_ASSOC);
-  foreach ($registerpagecontent as $register) {
+  $pagecontents = $pre->fetchAll(PDO::FETCH_ASSOC);
+  foreach ($pagecontents as $page) {
   ?>
-    <section class="container center">
-      <div >
-        <h2>Préinscription</h2>
-      </div>
-    </section>
 
-    <!--
-
-    <div class="container row">
-      <div class="col s12 l6">
-        <h3><?php //echo $register['title1'] 
-            ?></h3>
-        <p><?php //echo $register['content1'] 
-            ?></p>
-      </div>
-      <div class="col s12 l6">
-        fddfs
-      </div>
+    <div class="container center">
+      <h2><?php echo $page['main-title'] ?></h2>
     </div>
 
-  -->
+    <div class="container row">
+      <div class="col s12 l8 offset-l2">
+        <h3><?php echo $page['under-title1'] ?></h3>
+        <p><?php echo nl2br($page['content1']) ?></p>
+        <h3><?php echo $page['under-title2'] ?></h3>
+        <p><?php echo nl2br($page['content2']) ?></p>
+      </div>
+    </div>
   <?php
   }
   include 'components/footer.php';

@@ -60,7 +60,7 @@ require_once "components/head.php";
                             </div>
                             <div class="row">
                                 <div class="file-field input-field col s12">
-                                    <div class="btn blue accent-2">
+                                    <div class="btn purple accent-2">
                                         <span>File</span>
                                         <input type="file" name="image" accept="image/*">
                                     </div>
@@ -69,7 +69,7 @@ require_once "components/head.php";
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn blue accent-2" type="submit">Modifier</button>
+                            <button class="btn purple accent-2" type="submit">Modifier</button>
                         </form>
                     </div>
                 </div>
@@ -78,7 +78,6 @@ require_once "components/head.php";
             ?>
         </div>
     </div>
-    <hr>
     <!-- middle boxes -->
     <section id="home-middle-edit">
         <div class="row">
@@ -105,7 +104,7 @@ require_once "components/head.php";
                                 </div>
                             </div>
                             <input type="hidden" name="id" value="<?php echo $box['id']; ?>">
-                            <button class="btn blue accent-2" type="submit">Modifier</button>
+                            <button class="btn purple accent-2" type="submit">Modifier</button>
                         </form>
                     </div>
                 </div>
@@ -130,7 +129,7 @@ require_once "components/head.php";
                             </div>
                         </div>
                         <div class="file-field input-field col s12 m6">
-                            <div class="btn blue accent-2">
+                            <div class="btn purple accent-2">
                                 <span>File</span>
                                 <input type="file" name="image" accept="image/*">
                             </div>
@@ -141,7 +140,7 @@ require_once "components/head.php";
                     </div>
                     <div class="row">
                         <div class="col s12 m2">
-                            <button class="btn waves-effect waves-light blue accent-2" type="submit">Nouvelle image</button>
+                            <button class="btn waves-effect waves-light purple accent-2" type="submit">Nouvelle image</button>
                         </div>
                         <div class="col s12 m10">
                             <?php
@@ -182,42 +181,12 @@ require_once "components/head.php";
                         </div>
                         <form class="col s12" method="post" action="queries/home-bottom-images-delete.php">
                             <input type="hidden" name="id" value="<?php echo $image['id']; ?>">
-                            <button class="btn blue accent-2" type="submit">Supprimer</button>
+                            <button class="btn purple accent-2" type="submit">Supprimer</button>
                         </form>
                     </div>
                 </div>
             <?php }; ?>
         </div>
-
-        old text <br>
-        Nos locaux :
-
-        Situé au Business Park des Playes (anciennement l'Espace Noral), le local d'une superficie de 93 m2, en rez-de-chaussée, était un bureau d'architectes.
-
-        Vous pourrez aisément vous garer.
-
-        Huit fenêtres d'une largeur totale de 11,50 m apportent de la lumière qui peut être tamisée par des stores vénitiens.
-
-        Afin de laisser un grand espace de vie pour les enfants, nous avons créé autour de ce dernier :
-
-        Un accueil où vous pourrez prendre le temps d'habiller ou déshabiller votre « petit bout », un panneau d'affichage vous indiquera les moments forts de la micro-crèche,
-
-        Un bureau où vous pourrez parler en toute discrétion avec l'équipe,
-
-        Une chambre pour les « bébés »,
-
-        Une chambre pour les « grands » qui servira de salle d'activité en dehors des siestes
-        (Ces chambres sont équipées de cloisons phoniques afin que le sommeil des «P'tits Loups» ne soit pas perturbé par le bruit),
-
-        Un espace change où se trouvent une table à langer, un toilette ainsi qu'un lavabo pour les petits et une armoire où seront rangés les changes (à noter que pour l'intimité des enfants un seul d'entre eux sera changé au fur et à mesure),
-
-        Un espace buanderie avec lave linge et sèche linge,
-
-        Un espace cuisine avec évier, lave main à commande non manuelle, deux réfrigérateurs (un pour les enfants, un pour le personnel) ainsi qu'un micro onde,
-
-        Et enfin une large pièce pour les enfants que l'on a rendu « cocooning » grâce à différents espaces dédiés au regroupement, à la lecture, aux chansons, aux activités, à la motricité, aux jeux de rôle (poupée, cuisine).
-
-
 
         <hr>
 
@@ -234,7 +203,7 @@ require_once "components/head.php";
             <div class="card">
                 <form method="post" action="queries/register-update.php">
                     <div class="row">
-                        <div class="col s12 l6">
+                        <div class="col s12">
                             <div class="row">
                                 <div class="input-field col s12 l6 offset-l3">
                                     <textarea name="title1" type="text" class="validate materialize-textarea charactercount" data-length="100"><?php echo $register["title1"] ?></textarea>
@@ -248,20 +217,6 @@ require_once "components/head.php";
                                 </div>
                             </div>
                         </div>
-                        <div class="col s12 l6">
-                            <div class="row">
-                                <div class="input-field col s12 l6 offset-l3">
-                                    <textarea name="title2" type="text" class="validate materialize-textarea charactercount" data-length="100"><?php echo $register["title2"] ?></textarea>
-                                    <label for="title2">Titre (droite)</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <textarea name="content2" type="text" class="validate materialize-textarea charactercount" data-length="900"><?php echo $register["content2"] ?></textarea>
-                                    <label for="content2">Contenu (droite)</label>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
@@ -270,13 +225,64 @@ require_once "components/head.php";
                         </div>
                     </div>
                     <input type="hidden" name="id" value="<?php echo $register['id']; ?>">
-                    <button class="btn blue accent-2" type="submit">Modifier</button>
+                    <button class="btn purple accent-2" type="submit">Modifier</button>
                 </form>
             </div>
         <?php } ?>
 
-        <hr>
+        <hr id="otherpages">
 
+        <h4>Autres Pages</h4>
+        <ul class="collapsible">
+            <?php
+            $sql = "SELECT * FROM `other-pages`";
+            $pre = $pdo->prepare($sql);
+            $pre->execute();
+            $pages = $pre->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($pages as $page) {
+            ?><li>
+                    <div class="collapsible-header"><?php echo $page["main-title"] ?></div>
+                    <div class="collapsible-body">
+                        <form method="post" action="queries/other-pages-update.php">
+                            <div class="row">
+                                <div class="input-field col s12 l6 offset-l3">
+                                    <textarea name="main-title" type="text" class="validate materialize-textarea charactercount" data-length="100"><?php echo $page["main-title"] ?></textarea>
+                                    <label for="main-title">Grand Titre</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 l6 offset-l3">
+                                    <textarea name="under-title1" type="text" class="validate materialize-textarea charactercount" data-length="100"><?php echo $page["under-title1"] ?></textarea>
+                                    <label for="under-title1">Petit Titre 1</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea name="content1" type="text" class="validate materialize-textarea charactercount" data-length="2000"><?php echo $page["content1"] ?></textarea>
+                                    <label for="content1">Contenu 1</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 l6 offset-l3">
+                                    <textarea name="under-title2" type="text" class="validate materialize-textarea charactercount" data-length="100"><?php echo $page["under-title2"] ?></textarea>
+                                    <label for="under-title2">Petit Titre 2</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea name="content2" type="text" class="validate materialize-textarea charactercount" data-length="2000"><?php echo $page["content2"] ?></textarea>
+                                    <label for="content2">Contenu 2</label>
+                                </div>
+                            </div>
+                            <input type="hidden" name="id" value="<?php echo $page['id']; ?>">
+                            <p class="red-text">Les cases vides ne seront pas affichées</p>
+                            <button class="btn purple accent-2" type="submit">Modifier</button>
+                        </form>
+                    </div>
+                </li>
+            <?php } ?>
+        </ul>
+        <hr>
 
         <!-- footer content -->
         <h4 id="footer-edit">Pied de page</h4>
@@ -334,7 +340,7 @@ require_once "components/head.php";
                             </div>
                         </div>
                         <input type="hidden" name="id" value="<?php echo $box['id']; ?>">
-                        <button class="btn blue accent-2" type="submit">Modifier</button>
+                        <button class="btn purple accent-2" type="submit">Modifier</button>
                     </form>
                 </div>
             <?php }; ?>

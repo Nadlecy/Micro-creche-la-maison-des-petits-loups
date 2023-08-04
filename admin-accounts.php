@@ -56,7 +56,7 @@ require_once "components/head.php";
                     <label>Type de compte</label>
                 </div>
                 <div class="input-field col s12 m4 center">
-                    <button class="btn waves-effect waves-light blue accent-2" type="submit">Créer</button>
+                    <button class="btn waves-effect waves-light purple accent-3" type="submit">Créer</button>
                     <?php
                     if (isset($_SESSION["error"])) {
                         echo "<div class='left red '>" . $_SESSION["error"] . "</div>";
@@ -95,12 +95,12 @@ require_once "components/head.php";
                         <!-- button to delete a user from database -->
                         <form class="col s12 m3" method="post" action="queries/user-delete.php">
                             <input type='hidden' name='userId' value="<?php echo $userData['id'] ?>" />
-                            <button type='submit'>Supprimer</button>
+                            <button type='submit' class='btn purple accent-3'>Supprimer</button>
                         </form>
                         <!-- button to toggle a user's admin access -->
                         <form class="col s12 m3" method="post" action="queries/admin-toggle.php">
                             <input type='hidden' name='userId' value="<?php echo $userData['id'] ?>" />
-                            <button type='submit'>Ajouter/retirer en admin</button>
+                            <button type='submit' class='btn purple accent-3'>Ajouter/retirer en admin</button>
                         </form>
                         <!-- password reset -->
                         <form class="col s12 m6" method="post" action="queries/user-pwreset.php">
@@ -109,7 +109,7 @@ require_once "components/head.php";
                                 <input id="newpassword" type="text" name="newpassword" />
                                 <label for="newpassword">Réinitialiser le Mot de Passe</label>
                             </div>
-                            <button type='submit'>Réinitialiser</button>
+                            <button type='submit' class='btn purple accent-3'>Réinitialiser</button>
                         </form>
                     </div>
                 </div>

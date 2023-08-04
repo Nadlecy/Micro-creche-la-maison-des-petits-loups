@@ -19,18 +19,18 @@ require_once "config/config.php";
     } else {
       $sql = "SELECT * FROM `articles` JOIN `articles-access` ON `articles`.`id` = `articles-access`.`article-id` WHERE `articles-access`.`account-id` = 0 ORDER BY `articles`.`date` DESC";
     }
-    $pre = $pdo->prepare($sql); //on prévient la base de données qu'on va executer une requête
-    $pre->execute(); //on l'execute
-    $data = $pre->fetchAll(PDO::FETCH_ASSOC); // on stocke les données dans $data
+    $pre = $pdo->prepare($sql); 
+    $pre->execute();
+    $data = $pre->fetchAll(PDO::FETCH_ASSOC);
     foreach ($data as $article) {
 
       $date = date_create($article["date"]);
 
 
       $sql = "SELECT * FROM `articles-images` WHERE `article-id` =" . $article['id'];
-      $pre = $pdo->prepare($sql); //on prévient la base de données qu'on va executer une requête
-      $pre->execute(); //on l'execute
-      $articleimages = $pre->fetchAll(PDO::FETCH_ASSOC); // on stocke les données dans $data
+      $pre = $pdo->prepare($sql); 
+      $pre->execute(); 
+      $articleimages = $pre->fetchAll(PDO::FETCH_ASSOC); 
 
       $imagecount = count($articleimages);
     ?>

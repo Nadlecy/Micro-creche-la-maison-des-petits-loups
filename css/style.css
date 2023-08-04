@@ -1,6 +1,6 @@
 body {
   background-color: #ffffff;
-  color: #263238 ;
+  color: #263238;
   font-family: 'Roboto Condensed';
   font-size: 1.3em !important;
 }
@@ -30,8 +30,12 @@ nav a {
   transition: margin-top 1s, height 1s, width 1s;
 }
 
-.nav-mobile{
+.nav-mobile {
   font-size: 1.4em;
+}
+
+.sidenav-close {
+  background-color: #CCC;
 }
 
 .sidenav-overlay {
@@ -56,23 +60,41 @@ nav a {
   overflow: visible;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: 'Kaushan Script', serif;
   color: #db543e;
 }
 
-.news-display-box{
+section {
+  margin-top: 4%;
+  margin-bottom: 3%;
+}
+
+.container {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#grey-section {
+  padding-top: 2%;
+  padding-bottom: 3%;
+  margin-top: 2%;
+  margin-bottom: 0%;
+}
+
+.news-display-box {
   margin-bottom: 0px;
 }
 
-.news-display{
+.news-display {
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
 
-.news-display img{
-  vertical-align:middle !important;
+.news-display img {
+  vertical-align: middle !important;
   margin-left: auto;
   margin-right: auto;
   max-height: 100%;
@@ -90,13 +112,71 @@ hr {
   max-width: 800px;
 }
 
-.news-image {
+nav hr {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  max-width: 250px;
+}
+
+.news-image, #bottom-images img {
   max-width: 75%;
   width: 100%;
 
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+#bottom-images {
+  background-color: #db543e;
+  margin-bottom: 0px;
+  padding-bottom: 2%;
+}
+
+#bottom-images h2{
+color: #263238 !important;
+}
+
+#bottom-images img{
+  margin-top: 1em;
+  border: solid 1rem white;
+}
+
+@media (max-width: 992px) {
+  .size-controller {
+    width: 100%;
+  }
+
+  .mobile-16px-font {
+    font-size: 16px !important;
+  }
+
+  .mobile-hide {
+    display: none;
+  }
+
+  .mobile-100-percent {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 992px) {
+
+  .mobile-hide {
+    display: inline;
+  }
+
+  .mobile-show {
+    display: none;
+  }
+}
+
+footer a {
+  color: #DDD;
+}
+
+.footer-copyright a {
+  color: #bd0000;
 }
 
 #logo-footer {
