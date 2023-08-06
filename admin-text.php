@@ -19,7 +19,32 @@ require_once "components/head.php";
     <div class="container">
         <h3>Gestion du texte sur les pages</h3>
 
-        <!-- liste des différents paragraphes -->
+
+
+        <!-- register page content -->
+        <h4 id="register-edit">Préinscription</h4>
+        <?php
+        $sql = "SELECT * FROM `register-text`";
+        $pre = $pdo->prepare($sql);
+        $pre->execute();
+        $registerpagecontent = $pre->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($registerpagecontent as $register) {
+        ?>
+            <div class="card">
+                <form method="post" action="queries/register-update.php">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="form-link" type="text" class="validate materialize-textarea charactercount" data-length="900"><?php echo $register["form-link"] ?></textarea>
+                            <label for="form-link">Lien vers le formulaire de préinscription</label>
+                        </div>
+                    </div>
+                    <input type="hidden" name="id" value="<?php echo $register['id']; ?>">
+                    <button class="btn purple accent-2" type="submit">Modifier</button>
+                </form>
+            </div>
+        <?php } ?>
+
+        <hr>
 
 
         <h4 id="home-top-box-edit">Page d'accueil</h4>
@@ -187,48 +212,6 @@ require_once "components/head.php";
                 </div>
             <?php }; ?>
         </div>
-
-        <hr>
-
-
-        <!-- register page content -->
-        <h4 id="register-edit">Préinscription</h4>
-        <?php
-        $sql = "SELECT * FROM `register-text`";
-        $pre = $pdo->prepare($sql);
-        $pre->execute();
-        $registerpagecontent = $pre->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($registerpagecontent as $register) {
-        ?>
-            <div class="card">
-                <form method="post" action="queries/register-update.php">
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="row">
-                                <div class="input-field col s12 l6 offset-l3">
-                                    <textarea name="title1" type="text" class="validate materialize-textarea charactercount" data-length="100"><?php echo $register["title1"] ?></textarea>
-                                    <label for="title1">Titre (gauche)</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <textarea name="content1" type="text" class="validate materialize-textarea charactercount" data-length="900"><?php echo $register["content1"] ?></textarea>
-                                    <label for="content1">Contenu (gauche)</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="form-link" type="text" class="validate materialize-textarea charactercount" data-length="900"><?php echo $register["form-link"] ?></textarea>
-                            <label for="form-link">Lien vers le Forms</label>
-                        </div>
-                    </div>
-                    <input type="hidden" name="id" value="<?php echo $register['id']; ?>">
-                    <button class="btn purple accent-2" type="submit">Modifier</button>
-                </form>
-            </div>
-        <?php } ?>
 
         <hr id="otherpages">
 

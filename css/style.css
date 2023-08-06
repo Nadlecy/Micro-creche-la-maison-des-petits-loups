@@ -118,6 +118,18 @@ nav hr {
   max-width: 250px;
 }
 
+#pagesized {
+  min-height: 100%;
+}
+
+.register-content{
+  font-size:x-large;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 8%;
+  width:fit-content;
+}
+
 .news-image, #bottom-images img {
   max-width: 75%;
   width: 100%;

@@ -13,9 +13,19 @@
                     <li><a href="blog.php">Actualité</a></li>
                     <li><a href="philosophie.php">Philosophie</a></li>
                     <li><a href="local.php">Locaux</a></li>
-                    <li><a href="preinscriptions.php">Préinscriptions</a></li>
-                    <?php if (isset($_SESSION['user'])) { ?>
-                        <li><a href="queries/logout.php">Se déconnecter</a></li>
+                    <?php
+                    $sql = "SELECT * FROM `register-text`";
+                    $pre = $pdo->prepare($sql);
+                    $pre->execute();
+                    $registerpagecontent = $pre->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($registerpagecontent as $register) {
+                        $form = $register['form-link'];
+                    }
+                    ?>
+                    <li><a target="_blank" href=<?php echo $form ?>>Préinscriptions</a></li>
+                    <?php
+                    if (isset($_SESSION['user'])) { ?>
+                        <li><a href="my-account.php">Mon compte</a></li>
                     <?php } else { ?>
                         <li><a data-target="login-modal" class="modal-trigger">Se Connecter</a></li>
                     <?php
@@ -31,10 +41,10 @@
                     <hr>
                     <li><a href="blog.php">Actualité</a></li>
                     <hr>
-                    <li><a href="preinscriptions.php">Préinscriptions</a></li>
+                    <li><a target="_blank" href=<?php echo $form ?>>Préinscriptions</a></li>
                     <hr>
                     <?php if (isset($_SESSION['user'])) { ?>
-                        <li><a href="queries/logout.php">Se déconnecter</a></li>
+                        <li><a href="my-account.php">Mon compte</a></li>
                     <?php } else { ?>
                         <li><a data-target="login-modal" class="modal-trigger">Se Connecter</a></li>
                     <?php };
